@@ -1,0 +1,63 @@
+{
+  "name": "dsh-usage-detail",
+  "version": "0.1.0",
+  "description": "DSH 使用详细：设置面板内的使用统计——对话热力图、按模型/时间汇总的 Token 用量、每日产出文件清单 | Usage Detail for DeepSeek Harness: conversation heatmap, per-model/per-time token stats, and daily file output in Settings",
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "usage",
+    "stats",
+    "heatmap",
+    "token"
+  ],
+  "license": "MIT",
+  "author": "gzq",
+  "homepage": "https://github.com/gzq44/dsh-usage-detail#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gzq44/dsh-usage-detail.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gzq44/dsh-usage-detail/issues"
+  },
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node scripts/smoke-test.cjs"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-api-session-controller"
+      ]
+    }
+  }
+}

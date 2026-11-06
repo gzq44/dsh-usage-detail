@@ -1,0 +1,6 @@
+# dsh-usage-detail bundle patch: one insert over the base/web layers.
+# The row mounts the usage-detail settings plugin; the browser half owns the
+# "settings.section" registration ("使用详细") through exports["./client"].
+- insert:
+    - id: usage-detail
+      name: 'dsh-usage-detail'
